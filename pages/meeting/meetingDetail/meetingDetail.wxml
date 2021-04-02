@@ -1,5 +1,5 @@
 <!--pages/meeting/meetingDetail/meetingDetail.wxml-->
-<import src="../../../wxParse/wxParse.wxml"/>
+<!-- <import src="../../../wxParse/wxParse.wxml"/> -->
 <view class="container">
   <!-- 会议标题 -->
   <view class="new-content">
@@ -56,7 +56,8 @@
     <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view>
     <view class="new-h2">会议流程</view>
     <view class="new-text"><image src="../../../image/meeting/icon-arrow.png"></image>后疫情时代零售银行增长的二次曲线</view> -->
-    <template is="wxParse" data="{{wxParseData:context.nodes}}"/>
+    <!-- <template is="wxParse" data="{{wxParseData:context.nodes}}"/> -->
+    <rich-text nodes="{{meetInfo.content}}"></rich-text>
   </view>
 
   <!-- 底部操作栏 -->

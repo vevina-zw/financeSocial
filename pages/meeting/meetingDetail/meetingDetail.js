@@ -2,7 +2,7 @@
 //获取接口配置
 const config = require('../../../config/config')
 const { formatTime } = require('../../../utils/util')
-const WxParse = require('../../../wxParse/wxParse')
+// const WxParse = require('../../../wxParse/wxParse')
 // 获取应用实例
 const app = getApp()
 Page({
@@ -149,10 +149,13 @@ Page({
           * 4.target为Page对象,一般为this(必填)
           * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
           */
-         let context = meetInfo.content;
-         if(context){
-          WxParse.wxParse('context', 'html', context, _this,15);
-         }
+        //  let context = meetInfo.content;
+        //  if(context){
+        //   WxParse.wxParse('context', 'html', context, _this,15);
+        //  }
+
+          /*使用rich-text解析富文本，正则匹配img，自定义图片样式为100%*/
+          meetInfo.content = meetInfo.content.replace(/\<img/gi, '<img style="width:100%" ');
 
           _this.setData({meetInfo,bannerData,indicatorDots})
         }else{

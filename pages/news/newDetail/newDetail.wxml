@@ -1,5 +1,5 @@
 <!--pages/news/newDetail/newDetail.wxml-->
-<import src="../../../wxParse/wxParse.wxml"/>
+<!-- <import src="../../../wxParse/wxParse.wxml"/> -->
 <view class="container">
   <!-- 资讯内容 -->
   <view class="new-content">
@@ -11,7 +11,8 @@
     <image mode="widthFix" src="{{newInfo.icon}}"></image>
     <!-- <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view>
     <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view> -->
-    <template is="wxParse" data="{{wxParseData:context.nodes}}"/>
+    <!-- <template is="wxParse" data="{{wxParseData:context.nodes}}"/> -->
+    <rich-text nodes="{{newInfo.content}}"></rich-text>
   </view>
   <!-- 相关阅读 -->
   <view class="related-news">

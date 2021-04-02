@@ -158,10 +158,13 @@ Page({
           * 4.target为Page对象,一般为this(必填)
           * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
           */
-         let context = newInfo.content;
-         if(context){
-          WxParse.wxParse('context', 'html', context, _this,5);
-         }
+        //  let context = newInfo.content;
+        //  if(context){
+        //   WxParse.wxParse('context', 'html', context, _this,5);
+        //  }
+
+          /*使用rich-text解析富文本，正则匹配img，自定义图片样式为100%*/
+          newInfo.content = newInfo.content.replace(/\<img/gi, '<img style="width:100%" ');
 
           _this.setData({newInfo})
         }else{
