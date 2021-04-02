@@ -155,7 +155,11 @@ Page({
         //  }
 
           /*使用rich-text解析富文本，正则匹配标签自定义样式*/
-          meetInfo.content = meetInfo.content.replace(/\<img/gi, '<img style="width:100%" ');
+          // meetInfo.content = meetInfo.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto;" ');
+          // 如果img标签内无style，则加style属性 style="max-width:100%;height:auto;"
+          meetInfo.content = meetInfo.content.replace(/(\<img\s+[^>]*style\s*\=\s*['"][^'"]*)(['"])/gi, '$1;max-width:100%;height:auto;$2');
+          // 如果img标签内有style，则在style内增加追加max-width:100%;height:auto;
+          meetInfo.content = meetInfo.content.replace(/(\<img\s+((?!style).)+?)(\/?>)/gi, '$1 style="max-width:100%;height:auto;" $3');
           meetInfo.content = meetInfo.content.replace(/\<h1/gi, '<h1 style="font-size:18px;" ');
           meetInfo.content = meetInfo.content.replace(/\<h2/gi, '<h2 style="font-size:17px;" ');
           meetInfo.content = meetInfo.content.replace(/\<h3/gi, '<h2 style="font-size:16px;" ');

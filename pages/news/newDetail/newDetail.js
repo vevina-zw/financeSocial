@@ -164,7 +164,7 @@ Page({
         //  }
 
           /*使用rich-text解析富文本，正则匹配标签自定义样式*/
-          newInfo.content = newInfo.content.replace(/\<img/gi, '<img style="max-width:100%" ');
+          newInfo.content = newInfo.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto;" ');
           newInfo.content = newInfo.content.replace(/\<h1/gi, '<h1 style="font-size:18px;" ');
           newInfo.content = newInfo.content.replace(/\<h2/gi, '<h2 style="font-size:17px;" ');
           newInfo.content = newInfo.content.replace(/\<h3/gi, '<h2 style="font-size:16px;" ');
