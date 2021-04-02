@@ -15,7 +15,7 @@
     <rich-text nodes="{{newInfo.content}}"></rich-text>
   </view>
   <!-- 相关阅读 -->
-  <view class="related-news">
+  <view class="related-news" wx:if="{{aboutNews && aboutNews.length > 0}}">
     <view class="plate-title-inner">相关阅读</view>
     <view class="new-cover" wx:for="{{aboutNews}}" wx:key="index"
     bindtap="goToNewDetail" data-id="{{item.id}}">
@@ -34,7 +34,7 @@
     </view>
   </view>
   <!-- 评论 -->
-  <view class="comment">
+  <view class="comment" wx:if="{{newComment && newComment.length >0}}">
     <view class="plate-title-inner">评论</view>
     <view class="circle-cover" wx:for="{{newComment}}" wx:key="index">
       <view class="circle-inner">
@@ -67,7 +67,7 @@
       </view>
     </view>
   </view>
-  <view class="load_warn" wx:if="{{warn}}">------{{warn}}------</view>
+  <view class="load_warn" wx:if="{{warn && newComment && newComment.length >0}}">------{{warn}}------</view>
   <!-- 底部操作栏 -->
   <view class="new-handle">
     <view class="edit-button" bindtap="toComment">编辑评论</view>

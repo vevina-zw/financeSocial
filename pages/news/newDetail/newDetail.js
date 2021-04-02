@@ -2,7 +2,7 @@
 //获取接口配置
 const config = require('../../../config/config')
 const { formatYearDate,formatTime } = require('../../../utils/util')
-const WxParse = require('../../../wxParse/wxParse')
+// const WxParse = require('../../../wxParse/wxParse')
 // 获取应用实例
 const app = getApp()
 Page({
