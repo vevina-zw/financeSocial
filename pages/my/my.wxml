@@ -1,0 +1,47 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+  <view class="my-info" wx:if="{{token && myInfo}}">
+    <image mode="aspectFit" src="{{myInfo.headImg}}"></image>
+    <view class="text_box">
+      <view>
+        <text class="name">{{myInfo.nickname}}</text>
+        <text class="level" wx:if="{{myInfo.vip}}"> 会员</text>
+      </view>
+      
+      <view>
+        <text class="login" wx:if="{{myInfo.phone}}">{{myInfo.phone}}</text>
+        <text class="login" wx:else bindtap="goToLogin">点击绑定手机号</text>
+      </view>
+    </view>
+  </view>
+  <view class="my-info" wx:else bindtap="goToLogin">
+    <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+    <view class="text_box">
+      <text class="name">未登录</text>
+      <text class="login">点击头像登录/注册</text>
+    </view>
+  </view>
+  <view class="my-vip">
+    <image mode="aspectFit" src="../../image/my/vip_bg.png"></image>
+    <view class="be-vip" bindtap="linkPage" data-url="/pages/my/VIP/VIP?isvip={{myInfo.vip}}">
+      <block wx:if="{{myInfo.vip}}">去续费</block>
+      <block wx:else>成为会员</block>
+    </view>
+  </view>
+  <view class="my-lists">
+    <block wx:for="{{listsData}}" wx:key="index">
+      <view class="list" bindtap="linkPage" data-url="{{item.linkPath}}">
+        <view class="left">
+          <image mode="aspectFit" src="{{item.iconPath}}"></image>
+          {{item.name}}
+        </view>
+        <image src="../../image/my/list_icon_right.png"></image>
+      </view>
+    </block>
+  </view>
+
+  <view class="load_warn">杭州老铁帮网络科技提供技术支持</view>
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

@@ -1,0 +1,78 @@
+/* pages/meeting/meeting.wxss */
+@import "../news/news.wxss";
+
+.new-inner{
+  /* padding: 40rpx 0 0 0; */
+}
+.new-inner .new-img{
+  position: relative;
+}
+.new-inner .new-img .metting-status{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 68rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+  font-size: 18rpx;
+  color: #fff;
+  text-align: center;
+}
+.new-inner .new-img .metting-status.over{
+  background-color: #16253D;
+}
+.new-inner .new-img .metting-status.ongoing{
+  background-color: #FFBA52;
+}
+.new-inner .new-img .metting-status.before{
+  background-color: #F04848;
+}
+.metting-hold{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.metting-hold .new-hold{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.metting-price{
+  width: 180rpx;
+  font-size: 24rpx;
+  color: #55C595;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.metting-price .invalid{
+  color:#ACB5BC;
+  text-decoration: line-through;
+  margin-right: 10rpx;
+  font-weight: normal;
+}
+.metting-buy{
+  width: 690rpx;
+  /* height: 86rpx; */
+  padding-bottom:20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.metting-buy .about text{
+  font-size: 24rpx;
+  color: #55C595;
+  margin-left: 20rpx;
+}
+.metting-buy .buy-button{
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  padding: 0 19rpx;
+  font-size: 24rpx;
+  color: #55C595;
+  border: 1rpx solid #55C595;
+}

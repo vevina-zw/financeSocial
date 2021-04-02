@@ -1,0 +1,104 @@
+<!--pages/news/newDetail/newDetail.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class="container">
+  <!-- 资讯内容 -->
+  <view class="new-content">
+    <view class="new-title">{{newInfo.title}}</view>
+    <view class="new-info">
+      <view><text>凤鸣财经</text><text> {{newInfo.formatModifyTime}}</text></view>
+      <text>{{newInfo.firstTag}} {{newInfo.secondTag}}</text>
+    </view>
+    <image mode="widthFix" src="{{newInfo.icon}}"></image>
+    <!-- <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view>
+    <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view> -->
+    <template is="wxParse" data="{{wxParseData:context.nodes}}"/>
+  </view>
+  <!-- 相关阅读 -->
+  <view class="related-news">
+    <view class="plate-title-inner">相关阅读</view>
+    <view class="new-cover" wx:for="{{aboutNews}}" wx:key="index"
+    bindtap="goToNewDetail" data-id="{{item.id}}">
+      <view class="new-inner">
+        <view class="new-img">
+          <image src="{{item.icon}}"></image>
+        </view>
+        <view class="new-info">
+          <view class="new-title">{{item.title}}</view>
+          <view class="new-hold">
+            <text>{{item.firstTag}} {{item.secondTag}}</text>
+            <text>{{item.formatModifyTime}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 评论 -->
+  <view class="comment">
+    <view class="plate-title-inner">评论</view>
+    <view class="circle-cover" wx:for="{{newComment}}" wx:key="index">
+      <view class="circle-inner">
+        <image mode="aspectFit" src="{{item.headImg}}"></image>
+        <view class="circle-content">
+          <view class="name">{{item.name}}<text>{{item.formatCreateTime}}</text></view>
+          <!-- <view class="viewpoint">{{item.content}}</view> -->
+          <text class="viewpoint" space="nbsp">{{item.content}}</text>
+          <!-- <view class="img-box">
+            <image mode="aspectFit" src="../../../image/my/default_avatar.png"></image>
+            <image mode="aspectFit" src="../../../image/my/default_avatar.png"></image>
+            <image mode="aspectFit" src="../../../image/my/default_avatar.png"></image>
+          </view> -->
+          <!-- <view class="handle">
+            <text>昨天</text>
+            <view class="icon-button">
+                <image mode="aspectFit" src="../../../image/common/icon-circle-collect.png"></image>
+                <image mode="aspectFit" src="../../../image/common/icon-circle-comment.png"></image>
+            </view>
+          </view>
+          <view class="reply-box">
+            <view class="reply">
+              <text>叶明：</text>集体痛哭不如集体抗争。看完想起前阵子读的加缪，大致观点是：人生就是荒诞的，理想和现实之间的差距就是荒诞。谁没有自己的困苦
+            </view>
+            <view class="reply">
+              <text>叶明：</text>集体痛哭不如集体抗争。看完想起前阵子读的加缪，大致观点是：人生就是荒诞的，理想和现实之间的差距就是荒诞。谁没有自己的困苦
+            </view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="load_warn" wx:if="{{warn}}">------{{warn}}------</view>
+  <!-- 底部操作栏 -->
+  <view class="new-handle">
+    <view class="edit-button" bindtap="toComment">编辑评论</view>
+    <view class="icon-button">
+      <image mode="aspectFit" src="../../../image/common/icon-news-collect.png" bindtap="doCollection" data-id="{{newInfo.id}}" wx:if="{{!newInfo.collection}}"></image>
+      <image mode="aspectFit" src="../../../image/common/icon-news-collected.png" bindtap="doCollection" data-id="{{newInfo.id}}" wx:else></image>
+      <!-- <button open-type="share">
+        <image mode="aspectFit" src="../../../image/common/icon-news-share.png"></image>
+      </button> -->
+      <image mode="aspectFit" src="../../../image/common/icon-news-share.png" bindtap="showModal"></image>
+    </view>
+  </view>
+    <!-- 分享到好友/朋友圈 -->
+    <view class="modals modals-bottom-dialog" hidden="{{hideModal}}"  bindtap="hideModal">
+    <view class="modals-cancel"></view>
+    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+      <button open-type="share" class="share-btn"><image src="../../../image/common/icon-share-friend.png"></image>转发给好友或群聊</button>
+      <view class="share-btn" bindtap="buildWXCode"><image src="../../../image/common/icon-share-circle.png"></image>分享到朋友圈</view>
+    </view>
+  </view>
+  <!-- 分享到朋友圈：生成海报，保存到本地 -->
+  <painter customStyle='position: absolute; left: -9999rpx;' palette="{{imgDraw}}" bind:imgOK="onImgOK" bind:imgErr="onImgErr"/>
+  <view hidden="{{imgHidden}}" class="preview-box" bindtap="hidePreview">
+    <view class="image-box">
+      <image src="{{drawImgPath}}" mode="widthFix"></image>
+      <view>此图片已保存到相册，快去分享吧</view>
+    </view>
+    <!-- <view class="save-box">
+      <button class="buttonBg" size="mini" bindtap="saveImage">保存分享</button>
+    </view> -->
+  </view>
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

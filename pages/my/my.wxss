@@ -1,0 +1,89 @@
+/* pages/my/my.wxss */
+.my-info{
+  width: 690rpx;
+  display: flex;
+  margin: 40rpx 0;
+}
+.my-info image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+}
+.my-info .text_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 110rpx;
+  margin-left: 52rpx;
+}
+.my-info .text_box .name{
+  font-size: 36rpx;
+  color: #16253D;
+}
+.my-info .text_box .login{
+  font-size: 24rpx;
+  color: #ACB5BC; 
+}
+.my-info .text_box .level{
+  /* font-size: 24rpx;
+  color: #ACB5BC; */
+  font-size: 30rpx;
+  color: #F04848;
+  font-weight: 600;
+}
+.my-vip{
+  width: 690rpx;
+  margin: 20rpx 0 40rpx;
+  position: relative;
+}
+.my-vip image{
+  width: 690rpx;
+  height: 150rpx;
+}
+.my-vip .be-vip{
+  width: 160rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  border-radius: 28rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  color: #454546;
+  text-align: center;
+  position: absolute;
+  top: 47rpx;
+  right: 27rpx;
+}
+.my-lists{
+  width: 750rpx;
+  color: #16253D;
+  border-top: 20rpx solid #F5F5F5;
+}
+.my-lists .list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 41rpx;
+  height: 124rpx;
+  border-bottom: 20rpx solid #F5F5F5;
+}
+.my-lists .list .left{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #333;
+}
+.my-lists .list .left image{
+  max-width: 48rpx;
+  max-height: 48rpx;
+  margin-right: 47rpx;
+}
+.my-lists .list >image{
+  width: 16rpx;
+  height: 29rpx;
+}
+.load_warn{
+  /* margin-top: 80rpx; */
+  position: absolute;
+  bottom: 50rpx;
+}

@@ -1,0 +1,53 @@
+/**app.wxss**/
+@import "wxParse/wxParse.wxss";
+page{
+  width: 750rpx;
+  color: #072233;
+  font-family:Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif!important;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}  */
+
+.plate-title,.plate-title-inner{
+  font-size: 32rpx;
+  line-height: 40rpx;
+  color: #072233;
+  letter-spacing: 8rpx;
+  font-weight: 500;
+  margin: 5rpx 0;
+}
+.plate-title-inner{
+  color: #16253D;
+  letter-spacing: normal;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+button::after {
+  border: none;
+}
+
+.load_warn{
+  text-align: center;
+  color: #ACB5BC;
+  line-height: 110rpx;
+  font-size: 26rpx;
+}
+

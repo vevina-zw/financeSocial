@@ -1,0 +1,31 @@
+<!--pages/comment/comment.wxml-->
+<view class="container">
+  <view class="conts">
+      <textarea class="areas" placeholder='编辑评论' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"></textarea>
+      <text class="hint">{{texts}}</text>
+      <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+  </view>
+
+  <view class="img_box" wx:if="{{isShowImgBox && type=='circle'}}">
+    <view class="imgs" wx:for="{{tempFilePaths}}" wx:key="index">
+      <image src='{{item}}' bindlongpress="deleteImage" bindtap="listenerButtonPreviewImage" data-index="{{index}}" mode='widthFix' />
+    </view>
+    <view class="imgs" wx:if="{{tempFilePaths.length <9}}">
+      <view class="images" bindtap="upload">
+        <image src='../../image/common/icon-add-img.png' mode='widthFix' />
+      </view>
+    </view>
+  </view>
+
+  <view class="comment-button" bindtap="publishComment" wx:if="{{!texts}}">
+    <block wx:if="{{type=='circle'}}">发布圈子</block>
+    <block wx:else>发表评论</block>
+  </view>
+  <view class="comment-button grey" wx:else>
+    <block wx:if="{{type=='circle'}}">发布圈子</block>
+    <block wx:else>发表评论</block>
+  </view>
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

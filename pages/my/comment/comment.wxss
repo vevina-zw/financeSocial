@@ -1,0 +1,7 @@
+/* pages/my/comment/comment.wxss */
+@import "../collection/collection.wxss";
+
+.container{
+  margin-top: 0;
+  border-top: 0;
+}

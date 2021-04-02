@@ -1,0 +1,64 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/news/news",
+    "pages/news/newDetail/newDetail",
+    "pages/meeting/meeting",
+    "pages/meeting/meetingDetail/meetingDetail",
+    "pages/circle/circle",
+    "pages/my/my",
+    "pages/my/meeting/meeting",
+    "pages/my/collection/collection",
+    "pages/my/comment/comment",
+    "pages/my/VIP/VIP",
+    "pages/comment/comment",
+    "pages/login/login"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "凤鸣财经",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "image/tabbar/tab_index_selected.png",
+        "iconPath": "image/tabbar/tab_index.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "image/tabbar/tab_news_selected.png",
+        "iconPath": "image/tabbar/tab_news.png",
+        "pagePath": "pages/news/news",
+        "text": "资讯"
+      },
+      {
+        "selectedIconPath": "image/tabbar/tab_meeting_selected.png",
+        "iconPath": "image/tabbar/tab_meeting.png",
+        "pagePath": "pages/meeting/meeting",
+        "text": "会议"
+      },
+      {
+        "selectedIconPath": "image/tabbar/tab_circle_selected.png",
+        "iconPath": "image/tabbar/tab_circle.png",
+        "pagePath": "pages/circle/circle",
+        "text": "圈子"
+      },
+      {
+        "selectedIconPath": "image/tabbar/tab_my_selected.png",
+        "iconPath": "image/tabbar/tab_my.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "toast": "/components/toast/toast"
+  },
+  "sitemapLocation": "sitemap.json"
+}

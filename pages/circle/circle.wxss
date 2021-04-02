@@ -1,0 +1,144 @@
+/* pages/circle/circle.wxss */
+page{
+  background-color: #F5F5F5;
+}
+.container{
+  border-top: 20rpx solid #F5F5F5;
+}
+.circle-cover{
+  width: 750rpx;
+  background-color: #FFF;
+  /* margin-bottom: 20rpx; */
+  margin-bottom: 3rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.circle-inner{
+  width: 690rpx;
+  /* padding: 40rpx 0; */
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.circle-inner >image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.circle-content{
+  width: 520rpx;
+  margin-right: 60rpx;
+  font-size: 24rpx;
+  position: relative;
+}
+.circle-content .top-tip{
+  position: absolute;
+  top:0;
+  right:0;
+  /* width: 61rpx;
+  height: 19rpx; */
+}
+.circle-content .top-tip image{
+  width: 61rpx;
+  height: 19rpx;
+}
+.circle-content .name{
+  color: #16253D;
+  margin-bottom:20rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.circle-content .viewpoint{
+  /* color: #7A8186; */
+  color: #072233;
+  line-height: 36rpx;
+  font-size: 30rpx;
+  margin-bottom: 15rpx;
+  overflow: hidden;
+  display: block;
+}
+.circle-content .img-box{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5rpx;
+  overflow: hidden;
+}
+.circle-content .img-box image{
+  width: 164rpx;
+  height: 164rpx;
+  /* border-radius: 10rpx; */
+  margin: 0 10rpx 10rpx 0;
+}
+.circle-content .handle{
+  color: #ACB6BC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.circle-content .handle .icon-button{
+  width: 147rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.circle-content .handle .icon-button image{
+  max-width: 32rpx;
+  max-height: 32rpx;
+  padding: 15rpx;
+}
+.circle-content .reply-box{
+  margin-top: 30rpx;
+}
+.circle-content .reply{
+  font-size: 24rpx;
+  color: #7A8186;
+  width: 468rpx;
+  line-height: 42rpx;
+  /* line-height: 36rpx;
+  padding: 16rpx 26rpx;
+  margin-bottom: 10rpx;
+  background-color: #F5F5F5; */
+}
+.circle-content .reply text{
+  color: #000;
+}
+.circle-content .load-more{
+  color: #55C595;
+  font-weight: 500;
+  padding-top: 15rpx;
+}
+
+page{
+  height: 100%;
+  position: relative;
+}
+.comment-box{
+  width: 720rpx;
+  border: 15rpx solid #F5F5F5;
+  background-color: #FFF;
+  position:fixed;
+  -moz-box-shadow:0px -3px 5px #F5F5F5; 
+  -webkit-box-shadow:0px -3px 5px #F5F5F5; 
+  box-shadow:0px -3px 5px #F5F5F5;
+}
+.comment-box textarea{
+  width: 100%;
+  height: 100rpx;
+}
+.comment-btn{
+  position: fixed;
+  width: 120rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 50%;
+  left: 50%;
+  margin-left: -60rpx;
+  bottom: 30rpx;
+  background-color: #F04848;
+  z-index: 999;
+  -moz-box-shadow:0px 0px 10px #F04848; -webkit-box-shadow:0px 0px 10px #F04848; box-shadow:0px 0px 10px #F04848;
+}

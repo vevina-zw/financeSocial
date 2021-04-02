@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "会议",
+  "usingComponents": {
+    "painter":"/components/painter/painter"
+  }
+}

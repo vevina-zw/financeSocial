@@ -1,0 +1,81 @@
+<!--pages/circle/circle.wxml-->
+<view class="container">
+  <view class="comment-btn" bindtap="toComment">发圈</view>
+  <view class="circle-cover" wx:for="{{newsLists}}" wx:key="index">
+    <view class="circle-inner">
+      <image mode="aspectFit" src="{{item.headImg}}"></image>
+      <view class="circle-content">
+        <view class="top-tip" wx:if="{{item.hot}}"><image src="../../image/common/icon-top-tip.png"></image></view>
+        <view class="name">{{item.name}}</view>
+        <!-- <view class="viewpoint">{{item.content}}</view> -->
+        <text class="viewpoint" space="nbsp">{{item.content}}</text>
+        <view class="img-box" wx:if="{{item.pic.length>0}}">
+          <image wx:for="{{item.pic}}" wx:key="index" wx:for-item="picItem" mode="aspectFill" src="{{picItem}}" bindtap="listenerButtonPreviewImage" data-index="{{index}}" data-urls="{{item.pic}}"></image>
+        </view>
+        <view class="handle">
+          <text>{{item.formatCreateTime}}</text>
+          <view class="icon-button">
+              <image mode="aspectFit" src="../../image/common/icon-circle-collect.png" bindtap="doCollection" data-id="{{item.id}}" wx:if="{{!item.collection}}"></image>
+              <image mode="aspectFit" src="../../image/common/icon-news-collected.png" bindtap="doCollection" data-id="{{item.id}}" wx:else></image>
+              <image mode="aspectFit" src="../../image/common/icon-circle-comment.png" bindtap="toggleCommentArea" data-id="{{item.id}}"></image>
+          </view>
+        </view>
+        <view class="reply-box" wx:if="{{item.commentList.length>0}}">
+          <block wx:if="{{item.showMoreCom}}">
+            <view class="reply" wx:for="{{item.commentList_part}}" wx:for-item="replyItem" wx:key="index">
+              <text>{{replyItem.name}}：</text>
+              {{replyItem.content}}
+            </view>
+            <text class="load-more" catchtap="loadMoreComment" data-id="{{item.id}}">查看更多</text>
+          </block>
+          <block wx:else>
+            <view class="reply" wx:for="{{item.commentList}}" wx:for-item="replyItem" wx:key="index">
+              <text>{{replyItem.name}}：</text>
+              {{replyItem.content}}
+            </view>
+            <text wx:if="{{item.commentList.length>2}}" class="load-more" catchtap="loadMoreComment" data-id="{{item.id}}">收起</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="load_warn" wx:if="{{warn}}">------{{warn}}------</view>
+  <!-- <view class="circle-cover">
+    <view class="circle-inner">
+      <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+      <view class="circle-content">
+        <view class="name">雷人创业</view>
+        <view class="viewpoint">担保系工行、二手车分期、招有实力一级渠道、对接一定体量的二级渠道、稳定、快速、除（新疆）都可来聊</view>
+        <view class="img-box">
+          <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+          <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+          <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+        </view>
+        <view class="handle">
+          <text>昨天</text>
+          <view class="icon-button">
+              <image mode="aspectFit" src="../../image/common/icon-circle-collect.png"></image>
+              <image mode="aspectFit" src="../../image/common/icon-circle-comment.png" bindtap="toggleCommentArea"></image>
+          </view>
+        </view>
+        <view class="reply-box">
+          <view class="reply">
+            <text>叶明：</text>集体痛哭不如集体抗争。看完想起前阵子读的加缪，大致观点是：人生就是荒诞的，理想和现实之间的差距就是荒诞。谁没有自己的困苦
+          </view>
+          <view class="reply">
+            <text>叶明：</text>集体痛哭不如集体抗争。看完想起前阵子读的加缪，大致观点是：人生就是荒诞的，理想和现实之间的差距就是荒诞。谁没有自己的困苦
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 评论输入框 -->
+  <view class="comment-box" wx:if="{{showCommentArea}}" style='bottom:{{commentAreaBottom}}px'>
+    <textarea class='comment-area' focus="auto" placeholder="评论" 
+    bindfocus="commentAreaFocus" bindblur="commentAreaBlur" bindinput="commentAreaInput"
+    confirm-type="send" bindconfirm="publishComment" 
+    adjust-position="{{false}}" show-confirm-bar="{{false}}"></textarea>
+  </view>
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

@@ -1,0 +1,2 @@
+/* pages/my/meeting/meeting.wxss */
+@import "../../meeting/meeting.wxss";

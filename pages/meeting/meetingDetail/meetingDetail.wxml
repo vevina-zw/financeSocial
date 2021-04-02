@@ -1,0 +1,97 @@
+<!--pages/meeting/meetingDetail/meetingDetail.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class="container">
+  <!-- 会议标题 -->
+  <view class="new-content">
+    <!-- <image mode="widthFix" src="{{meetInfo.icon}}"></image> -->
+    <!-- banner -->
+    <view class="car_banner" wx:if="{{bannerData.length>0}}">
+      <swiper wx:if="{{bannerData.length > 0}}"
+        indicator-dots="{{indicatorDots}}" 
+        indicator-color="{{indicatorColor}}"
+        indicator-active-color="{{indicatorActiveColor}}"
+        autoplay="{{autoplay}}" 
+        circular="{{circular}}" 
+        vertical="{{vertical}}" 
+        interval="{{interval}}" 
+        duration="{{duration}}"
+    >
+      <block wx:for='{{bannerData}}' wx:key='index'>
+        <swiper-item>
+          <image src='{{item}}' mode='scaleToFill' class='swiper-item-images'/>
+        </swiper-item>
+      </block>
+    </swiper>
+    </view>
+
+    <view class="new-title">{{meetInfo.title}}</view>
+    <view class="meeting-info">
+      <view class="meeting-hold"><image mode="aspectFit" src="../../../image/meeting/icon-time.png"></image>{{meetInfo.formatStartTime}} - {{meetInfo.formatEndTime}}</view>
+      <!-- <view class="meeting-hold"><image mode="aspectFit" src="../../../image/meeting/icon-loaction.png"></image>{{meetInfo.province}}{{meetInfo.city}}{{meetInfo.address}}</view> -->
+      <view class="meeting-hold"><image mode="aspectFit" src="../../../image/meeting/icon-loaction.png"></image>{{meetInfo.detailAddress}}</view>
+      <view class="meeting-ticket">
+        <view>门票</view>
+        <!-- <block wx:if="{{meetInfo.generalPrice && meetInfo.vipPrice}}">
+          <view><text class="black" wx:if="{{meetInfo.generalPrice}}">{{meetInfo.generalPrice}}元</text></view>
+          <view><text class="black">会员价 </text><text class="red">{{meetInfo.vipPrice}}元</text></view>
+        </block>
+        <block wx:else>
+          <view><text class="red">免费</text></view>
+        </block> -->
+        <block wx:if="{{!meetInfo.payFlag || meetInfo.payFlag=='NO'}}">
+          <view><text class="red">免费</text></view>
+        </block>
+        <block wx:else>
+          <view><text class="black" wx:if="{{meetInfo.generalPrice}}">{{meetInfo.generalPrice}}元</text></view>
+          <view><text class="black">会员价 </text><text class="red">{{meetInfo.vipPrice}}元</text></view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 会议详情 -->
+  <view class="new-content">
+    <view class="plate-title-inner">会议详情</view>
+    <!-- <view class="new-h2">会议背景</view>
+    <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view>
+    <view class="new-text">2020年，中国GDP超过100万亿美元大关；而早在2019年，我国人均GDP就超过了1万美元。长期来看，消费的增长成为势不可</view>
+    <view class="new-h2">会议流程</view>
+    <view class="new-text"><image src="../../../image/meeting/icon-arrow.png"></image>后疫情时代零售银行增长的二次曲线</view> -->
+    <template is="wxParse" data="{{wxParseData:context.nodes}}"/>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="new-handle">
+    <view class="enroll-button ing" catchtap="toPay" data-id="{{meetInfo.id}}" wx:if="{{!meetInfo.hadBuy}}">立即报名</view>
+    <view class="enroll-button end" wx:else>已报名</view>
+    <view class="icon-button">
+      <image mode="aspectFit" src="../../../image/common/icon-news-collect.png" bindtap="doCollection" data-id="{{meetInfo.id}}" wx:if="{{!meetInfo.collection}}"></image>
+      <image mode="aspectFit" src="../../../image/common/icon-news-collected.png" bindtap="doCollection" data-id="{{meetInfo.id}}" wx:else></image>
+      <!-- <button open-type="share">
+        <image mode="aspectFit" src="../../../image/common/icon-news-share.png"></image>
+      </button> -->
+      <image mode="aspectFit" src="../../../image/common/icon-news-share.png" bindtap="showModal"></image>
+    </view>
+  </view>
+  <!-- 分享到好友/朋友圈 -->
+  <view class="modals modals-bottom-dialog" hidden="{{hideModal}}"  bindtap="hideModal">
+    <view class="modals-cancel"></view>
+    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+      <button open-type="share" class="share-btn"><image src="../../../image/common/icon-share-friend.png"></image>转发给好友或群聊</button>
+      <view class="share-btn" bindtap="buildWXCode"><image src="../../../image/common/icon-share-circle.png"></image>分享到朋友圈</view>
+    </view>
+  </view>
+  <!-- 分享到朋友圈：生成海报，保存到本地 -->
+  <painter customStyle='position: absolute; left: -9999rpx;' palette="{{imgDraw}}" bind:imgOK="onImgOK" bind:imgErr="onImgErr"/>
+  <view hidden="{{imgHidden}}" class="preview-box" bindtap="hidePreview">
+    <view class="image-box">
+      <image src="{{drawImgPath}}" mode="widthFix"></image>
+      <view>此图片已保存到相册，快去分享吧</view>
+    </view>
+    <!-- <view class="save-box">
+      <button class="buttonBg" size="mini" bindtap="saveImage">保存分享</button>
+    </view> -->
+  </view>
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

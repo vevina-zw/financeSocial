@@ -1,0 +1,46 @@
+<!--pages/my/meeting/meeting.wxml-->
+<view class="container">
+  <view class="new-cover"  wx:for="{{newsLists}}" wx:key="index"
+    bindtap="goToMeetDetail" data-id="{{item.id}}">
+    <!-- <view class="top-tip" wx:if="{{item.hot}}"><image src="../../image/common/icon-top-tip.png"></image></view> -->
+    <view class="new-inner">
+      <view class="new-img">
+        <image src="{{item.icon}}"></image>
+        <view class="metting-status before" wx:if="{{item.state==1}}">报名中</view>
+        <view class="metting-status ongoing" wx:if="{{item.state==2}}">进行中</view>
+        <view class="metting-status over" wx:if="{{item.state==3}}">已结束</view>
+      </view>
+      <view class="new-info">
+        <view class="new-title">{{item.title}}</view>
+        <view class="metting-hold">
+          <view class="new-hold">
+            <!-- <text>{{item.city}}</text> -->
+            <text>{{item.simpleAddress}}</text>
+            <text>{{item.formatStartTime}}-{{item.formatEndTime}}</text>
+          </view>
+          <view class="metting-price">
+            <!-- <block wx:if="{{item.generalPrice}}">￥{{item.generalPrice}}</block>
+            <block wx:else>免费</block> -->
+            <block wx:if="{{!item.payFlag || item.payFlag=='NO'}}">免费</block>
+            <block wx:else><text class="invalid">￥{{item.generalPrice}}</text>￥{{item.vipPrice}}</block>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="metting-buy">
+      <view class="about">
+        <!-- <text>#{{item.firstTag}}</text>
+        <text>#{{item.secondTag}}</text> -->
+        <text wx:if="{{item.tagList}}">{{item.tagList}}</text>
+      </view>
+      <!-- <view class="buy-button" wx:if="{{!item.generalPrice && !item.hadBuy}}">免费抢票</view>
+      <view class="buy-button" wx:elif="{{item.generalPrice && !item.hadBuy}}">立即报名</view>
+      <view class="buy-button" wx:elif="{{item.generalPrice && item.hadBuy}}">已报名</view> -->
+      <view class="buy-button">已报名</view>
+    </view>
+  </view>
+  <view class="load_warn" wx:if="{{warn}}">------{{warn}}------</view>
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

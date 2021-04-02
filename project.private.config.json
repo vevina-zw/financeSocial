@@ -1,0 +1,89 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资讯",
+          "pathName": "pages/news/news",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资讯详情",
+          "pathName": "pages/news/newDetail/newDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会议",
+          "pathName": "pages/meeting/meeting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会议详情",
+          "pathName": "pages/meeting/meetingDetail/meetingDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "圈子",
+          "pathName": "pages/circle/circle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的收藏",
+          "pathName": "pages/my/collection/collection",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的评论",
+          "pathName": "pages/my/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "VIP",
+          "pathName": "pages/my/VIP/VIP",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发表评论",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "键盘弹起测试",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

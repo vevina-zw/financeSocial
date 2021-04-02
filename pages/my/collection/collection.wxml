@@ -1,0 +1,118 @@
+<!--pages/my/collection/collection.wxml-->
+<view class="container">
+  <!-- tab切换 -->
+  <view class="tab_nav">
+    <view wx:for="{{navTab}}" wx:key="index" data-idx="{{index}}" bindtap="clickTab" class="{{currentTab==index ? 'cur' : ''}}">{{item}}</view>
+  </view>
+    <!-- 列表 -->
+  <view class="tab_content">
+    <block wx:if="{{currentTab==0}}">
+      <!-- 资讯 -->
+      <view class="new-cover" wx:for="{{newsLists}}" wx:key="index"
+        bindtap="goToNewDetail" data-id="{{item.id}}">
+        <!-- <view class="top-tip" wx:if="{{item.hot}}"><image src="../../../image/common/icon-top-tip.png"></image></view> -->
+        <view class="new-inner new-inner-padding">
+          <view class="new-img">
+            <image src="{{item.icon}}"></image>
+          </view>
+          <view class="new-info">
+            <view class="new-title">{{item.title}}</view>
+            <view class="new-hold">
+              <text>{{item.firstTag}} {{item.secondTag}}</text>
+              <text>{{item.formatModifyTime}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{currentTab==1}}">
+      <!-- 会议 -->
+      <view class="new-cover"  wx:for="{{meetLists}}" wx:key="index"
+        bindtap="goToMeetDetail" data-id="{{item.id}}">
+        <!-- <view class="top-tip" wx:if="{{item.hot}}"><image src="../../../image/common/icon-top-tip.png"></image></view> -->
+        <view class="new-inner">
+          <view class="new-img">
+            <image src="{{item.icon}}"></image>
+            <view class="metting-status before" wx:if="{{item.state==1}}">报名中</view>
+            <view class="metting-status ongoing" wx:if="{{item.state==2}}">进行中</view>
+            <view class="metting-status over" wx:if="{{item.state==3}}">已结束</view>
+          </view>
+          <view class="new-info">
+            <view class="new-title">{{item.title}}</view>
+            <view class="metting-hold">
+              <view class="new-hold">
+                <!-- <text>{{item.city}}</text> -->
+                <text>{{item.simpleAddress}}</text>
+                <text>{{item.formatStartTime}}-{{item.formatEndTime}}</text>
+              </view>
+              <view class="metting-price">
+                <!-- <block wx:if="{{item.generalPrice}}">￥{{item.generalPrice}}</block>
+                <block wx:else>免费</block> -->
+                <block wx:if="{{!item.payFlag || item.payFlag=='NO'}}">免费</block>
+                <block wx:else><text class="invalid">￥{{item.generalPrice}}</text>￥{{item.vipPrice}}</block>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="metting-buy">
+          <view class="about">
+            <!-- <text>#{{item.firstTag}}</text>
+            <text>#{{item.secondTag}}</text> -->
+            <text wx:if="{{item.tagList}}">{{item.tagList}}</text>
+          </view>
+          <view class="buy-button" wx:if="{{item.hadBuy}}">已报名</view>
+          <!-- <view class="buy-button" wx:else catchtap="toPay" data-id="{{item.id}}"> -->
+          <view class="buy-button" wx:else>
+            <block wx:if="{{item.payFlag}}">立即报名</block>
+            <block wx:else>免费抢票</block>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{currentTab==2}}">
+      <!-- 圈子 -->
+      <view class="circle-cover" wx:for="{{circleLists}}" wx:key="index">
+        <view class="circle-inner">
+          <image mode="aspectFit" src="{{item.headImg}}"></image>
+          <view class="circle-content">
+            <!-- <view class="top-tip" wx:if="{{!item.hot}}"><image src="../../../image/common/icon-top-tip.png"></image></view> -->
+            <view class="name">{{item.name}}</view>
+            <!-- <view class="viewpoint">{{item.content}}</view> -->
+            <text class="viewpoint" space="nbsp">{{item.content}}</text>
+            <view class="img-box" wx:if="{{item.pic.length>0}}">
+              <image wx:for="{{item.pic}}" wx:key="index" wx:for-item="picItem" mode="aspectFit" src="{{picItem}}"></image>
+            </view>
+            <view class="handle">
+              <text>{{item.formatCreateTime}}</text>
+              <view class="icon-button">
+                  <image mode="aspectFit" src="../../image/common/icon-circle-collect.png" bindtap="doCollection" data-id="{{item.id}}"></image>
+                  <!-- <image mode="aspectFit" src="../../image/common/icon--news-collected.png"></image> -->
+                  <image mode="aspectFit" src="../../image/common/icon-circle-comment.png" bindtap="toggleCommentArea" data-id="{{item.id}}"></image>
+              </view>
+            </view>
+            <view class="reply-box" wx:if="{{item.commentList.length>0}}">
+              <block wx:if="{{item.showMoreCom}}">
+                <view class="reply" wx:for="{{item.commentList_part}}" wx:for-item="replyItem" wx:key="index">
+                  <text>{{replyItem.name}}：</text>
+                  {{replyItem.content}}
+                </view>
+                <text class="load-more" catchtap="loadMoreComment" data-id="{{item.id}}">查看更多</text>
+              </block>
+              <block wx:else>
+                <view class="reply" wx:for="{{item.commentList}}" wx:for-item="replyItem" wx:key="index">
+                  <text>{{replyItem.name}}：</text>
+                  {{replyItem.content}}
+                </view>
+                <text wx:if="{{item.commentList.length>2}}" class="load-more" catchtap="loadMoreComment" data-id="{{item.id}}">收起</text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="load_warn" wx:if="{{warn}}">------{{warn}}------</view>
+    
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

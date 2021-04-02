@@ -1,0 +1,133 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.16.0",
+  "appid": "wx37ee698689064f0f",
+  "projectname": "%E5%87%A4%E9%B8%A3%E8%B4%A2%E7%BB%8F",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资讯",
+          "pathName": "pages/news/news",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资讯详情",
+          "pathName": "pages/news/newDetail/newDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会议",
+          "pathName": "pages/meeting/meeting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "会议详情",
+          "pathName": "pages/meeting/meetingDetail/meetingDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "圈子",
+          "pathName": "pages/circle/circle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的收藏",
+          "pathName": "pages/my/collection/collection",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的评论",
+          "pathName": "pages/my/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "VIP",
+          "pathName": "pages/my/VIP/VIP",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发表评论",
+          "pathName": "pages/comment/comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

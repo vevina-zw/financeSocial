@@ -1,0 +1,115 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- banner -->
+  <view class="fm-banner">
+    <swiper wx:if="{{bannerData.length > 0}}"
+        indicator-dots="{{indicatorDots}}" 
+        indicator-color="{{indicatorColor}}"
+        indicator-active-color="{{indicatorActiveColor}}"
+        autoplay="{{autoplay}}" 
+        circular="{{circular}}" 
+        vertical="{{vertical}}" 
+        interval="{{interval}}" 
+        duration="{{duration}}"
+    >
+      <block wx:for='{{bannerData}}' wx:key='index'>
+        <swiper-item bindtap='bannerDetail' data-type='{{item.toType}}' data-id='{{item.toId}}'>
+          <image src='{{item.pic}}' mode='scaleToFill' class='swiper-item-images'/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 凤鸣头条 -->
+  <view class="lead-news">
+    <view class="left-part">
+      <view class="title">
+        <text class="red">凤鸣</text>
+        <text class="black">头条</text>
+      </view>
+      <view class="date">
+        <image mode="aspectFit" src="../../image/index/date-bg.png"></image>
+        <text>{{today}}</text>
+      </view>
+    </view>
+    <view class="news-list">
+      <view wx:if="{{newsData.length <= 4}}" wx:for='{{newsData}}' wx:key='index' 
+        bindtap="goToNewDetail" data-id="{{item.id}}" class="new-item">{{item.title}}</view>
+      <swiper wx:if="{{newsData.length > 4}}"
+        autoplay="true" 
+        circular="true" 
+        vertical="true" 
+        interval="3000" 
+        duration="500"
+        display-multiple-items="4"
+      >
+        <block wx:for='{{newsData}}' wx:key='index'>
+          <swiper-item class="new-item" bindtap="goToNewDetail" data-id="{{item.id}}" >{{item.title}}</swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  <!-- 西湖汇 -->
+  <view class="westLake-news">
+    <view class="plate-title">西湖汇</view>
+    <view class="news-list">
+      <view class="new-cover" wx:for="{{meetData}}" wx:key='index'
+        bindtap="goToMeetDetail" data-id="{{item.id}}">
+        <image mode="scaleToFill" src="{{item.icon}}"></image>
+        <view class="new-info">
+          <view class="new-title">{{item.title}}</view>
+          <view class="new-text">
+            <!-- <text>{{item.province}} · {{item.city}}</text> -->
+            <text>{{item.simpleAddress}}</text>
+            <text class="date">{{item.formatStartTime}} {{item.formatWeekDay}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="new-cover">
+        <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+        <view class="new-info">
+          <view class="new-title">金融科技赋能产业经济创新 发展论坛金融科技赋能产业经济创新金融科技赋能产业经济创新</view>
+          <view class="new-text">
+            <text>浙江 · 杭州</text>
+            <text>1/12 星期四</text>
+          </view>
+        </view>
+      </view>-->
+    </view>
+  </view>
+  <!-- 凤鸣圈 -->
+  <!-- <view class="fm-circle">
+    <view class="plate-title">凤鸣圈</view>
+    <scroll-view scroll-x="true">
+      <view class="scroll-inner">
+        <view class="circle-cover">
+          <view class="person">
+            <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+            <text>雷人创业</text>
+          </view>
+          <view class="article">
+            供应链信用融资--信易融 1.企业年缴税10W+ 2.高新企业/各大品牌经销商 3.政府、国央企、上市公司供应商 年化3%起 
+          </view>
+        </view>
+        <view class="circle-cover">
+          <view class="person">
+            <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+            <text>雷人创业</text>
+          </view>
+          <view class="article">
+            供应链信用融资--信易融 1.企业年缴税10W+ 2.高新企业/各大品牌经销商 3.政府、国央企、上市公司供应商 年化3%起 
+          </view>
+        </view>
+        <view class="circle-cover">
+          <view class="person">
+            <image mode="aspectFit" src="../../image/my/default_avatar.png"></image>
+            <text>雷人创业</text>
+          </view>
+          <view class="article">供应链信用融资--信易融 1.企业年缴税10W+ 2.高新企业/各大品牌经销商 3.政府、国央企、上市公司供应商 年化3%起 </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view> -->
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

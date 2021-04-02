@@ -1,0 +1,111 @@
+/* pages/my/VIP/VIP.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #3C404C;
+}
+
+.VIP-top{
+  width: 750rpx;
+  position: relative;
+}
+.VIP-top >image{
+  width: 318rpx;
+  height: 247rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.VIP-top .tabBar{
+  width: 690rpx;
+  height: 80rpx;
+  /* margin:45rpx 30rpx; */
+  margin:0 30rpx;
+  display: flex;
+  align-items: center;
+}
+.VIP-top .tabBar image{
+  width: 17rpx;
+  height: 30rpx;
+  padding:20rpx 30rpx 20rpx 0;
+}
+.VIP-top .tabBar text{
+  font-size: 32rpx;
+  color: #FED491;
+  flex:1;
+  padding-right: 47rpx;/* 左侧箭头的宽(包括padding) */
+  text-align: center;
+}
+.VIP-top .vip-text{
+  width: 690rpx;
+  margin: 70rpx 30rpx;
+  font-size: 48rpx;
+  color: #FED491;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.VIP-card{
+  width: 690rpx;
+  height: 296rpx;
+  position: relative;
+  overflow: hidden;
+}
+.VIP-card >image{
+  width: 100%;
+  height: 100%;
+}
+.card-content{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.card-content .expirydate{
+  font-size: 24rpx;
+  color: #C98E31;
+  margin: 30rpx 0 0 64rpx;
+}
+.card-content .title{
+  margin: 64rpx 0 0 64rpx;
+  display: flex;
+  align-items: center;
+}
+.card-content .title image{
+  width: 129rpx;
+  height: 75rpx;
+  margin-right: 37rpx;
+}
+.card-content .title text{
+  font-size: 60rpx;
+  color: #C98E31;
+  font-weight: 600;
+  letter-spacing: 8rpx;
+}
+
+.beVIP-btn{
+  width: 690rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 30rpx;
+  bottom: 5%;
+  line-height: 90rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #C98E31;
+  font-weight: 600;
+  letter-spacing: 8rpx;
+  background:-webkit-linear-gradient(left,#F4E4C2,#DBBC89);
+	background:-o-linear-gradient(right,#F4E4C2,#DBBC89);
+	background:-moz-linear-gradient(right,#F4E4C2,#DBBC89);
+	background:linear-gradient(to right,#F4E4C2,#DBBC89);
+}

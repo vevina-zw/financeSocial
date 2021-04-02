@@ -1,0 +1,18 @@
+/* pages/login/login.wxss */
+page,
+.container{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  justify-content: center;
+}
+.btn{
+  width: 688rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+  background-color: #F04848;
+  color: #fff;
+  font-size: 30rpx;
+}

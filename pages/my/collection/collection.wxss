@@ -1,0 +1,54 @@
+/* pages/my/collection/collection.wxss */
+@import "../../news/news.wxss";
+@import "../../meeting/meeting.wxss";
+@import "../../circle/circle.wxss";
+page{
+  background-color: #F5F5F5;
+}
+.container{
+  margin-top: 0;
+  border-top: 0;
+}
+.new-inner-padding{
+  padding: 40rpx 0;
+}
+.tab_nav{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 750rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 26rpx;
+  color: #666;
+  background-color: #fff;
+}
+.tab_nav >view{
+  width: 90rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.tab_nav .cur{
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+.tab_nav .cur::after{
+  content: "";
+  width: 26rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-color: #F04848;
+  display: inline-block;
+  position: absolute;
+  bottom:0;
+  left: 50%;
+  margin-left: -13rpx;
+}
+.tab_content{
+  margin-top: 90rpx;
+}

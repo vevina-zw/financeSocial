@@ -1,0 +1,37 @@
+<!--pages/news/news.wxml-->
+<view class="container">
+  <view class="new-cover" wx:for="{{newsLists}}" wx:key="index"
+    bindtap="goToNewDetail" data-id="{{item.id}}">
+    <!-- <view class="top-tip" wx:if="{{item.hot}}"><image src="../../image/common/icon-top-tip.png"></image></view> -->
+    <view class="new-inner">
+      <view class="new-img">
+        <image src="{{item.icon}}"></image>
+      </view>
+      <view class="new-info">
+        <view class="new-title">{{item.title}}</view>
+        <view class="new-hold">
+          <text>{{item.firstTag}} {{item.secondTag}}</text>
+          <text>{{item.formatModifyTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="load_warn" wx:if="{{warn}}">------{{warn}}------</view>
+  <!-- <view class="new-cover" bindtap="goToDetail">
+    <view class="new-inner">
+      <view class="new-img">
+        <image src="../../image/my/default_avatar.png"></image>
+      </view>
+      <view class="new-info">
+        <view class="new-title">国内保险行业快速适应金融科 技赋能产业经济创新发展论坛国内保险行业快速适应金融科 技赋能产业经济创新发展论坛</view>
+        <view class="new-hold">
+          <text>会议干货</text>
+          <text>1小时前</text>
+        </view>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- 自定义弹窗组件 -->
+  <toast id='toast'></toast>
+</view>

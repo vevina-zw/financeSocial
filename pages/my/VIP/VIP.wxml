@@ -1,0 +1,32 @@
+<!--pages/my/VIP/VIP.wxml-->
+<view class="container">
+  <view class="VIP-top">
+    <image mode="aspectFit" src="../../../image/my/vip-page-bg.png"></image>
+     <!-- 沉浸栏 -->
+    <view style="width:100%;height:{{statusBarHeight}}px"></view>
+    <view class="tabBar">
+      <image bindtap="goBack" mode="aspectFit" src="../../../image/my/vip-back.png"></image>
+      <text>VIP</text>
+    </view>
+    <view class="vip-text">
+      <text>开通凤鸣VIP会员</text>
+      <text>享门票优惠</text>
+    </view>
+  </view>
+  <view class="VIP-card">
+    <image mode="aspectFit" src="../../../image/my/vip-card-bg.png"></image>
+    <view class="card-content">
+      <text class="expirydate">2021/1/12-2022/2/12</text>
+      <view class="title">
+        <image mode="aspectFit" src="../../../image/my/vip-crown.png"></image>
+        <text>凤鸣VIP会员</text>
+      </view>
+    </view>
+  </view>
+  <view class="beVIP-btn" bindtap="toPay">
+    <block wx:if="{{isvip}}">去续费</block>
+    <block wx:else>立即开通</block>
+  </view>
+    <!-- 自定义弹窗组件 -->
+    <toast id='toast'></toast>
+</view>

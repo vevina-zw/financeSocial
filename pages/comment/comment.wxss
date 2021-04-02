@@ -1,0 +1,92 @@
+/* pages/comment/comment.wxss */
+.container{
+  padding-bottom: 200rpx;
+}
+.container >view{
+  width: 690rpx;
+}
+.conts{
+  height: 360rpx;
+  padding: 0 30rpx;
+  border-top: 20rpx solid #F5F5F5;
+  border-bottom: 20rpx solid #F5F5F5;
+  position:relative;
+}
+.areas{
+  width:100%;
+  height: 240rpx;
+  font-size: 30rpx;
+  padding: 30rpx 0;
+  overflow: hidden;
+}
+.currentWordNumber{
+  font-size: 24rpx;
+  color: #BBC3D1;
+  position: absolute;
+  right: 60rpx;
+  bottom: 22rpx;
+}
+.hint{
+   font-size: 24rpx;
+   position: absolute;
+   left: 30rpx;
+   bottom:22rpx;
+   color: #FF6600;
+}
+/* 图片 */
+.img_box{
+  padding: 30rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.imgs{
+  width:33.33333333%;
+  display: flex;
+  justify-content: center;
+  margin-bottom:20rpx;
+}
+.imgs image{
+  width:90%;
+  max-height:212rpx;
+  border:1px solid rgba(214, 212, 212, 0.1);
+  /* box-shadow: 5rpx 5rpx 1rpx 3rpx #e2e0e0; */
+}
+.imgs .images{
+  position:relative;
+}
+.images button{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.img_box .images{
+  width:90%;
+	height: 212rpx;
+  border:1px solid #E8E8E8;
+  border-radius:4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img_box .images>image{
+  width:60rpx;
+	height:60rpx;
+}
+
+.comment-button{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #F04848;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 120rpx;
+}
+.comment-button.grey{
+  background-color: #C9C9C9;
+}
