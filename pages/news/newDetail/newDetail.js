@@ -163,7 +163,7 @@ Page({
         //   WxParse.wxParse('context', 'html', context, _this,5);
         //  }
 
-          /*使用rich-text解析富文本，正则匹配img，自定义图片样式为100%*/
+          /*使用rich-text解析富文本，正则匹配标签自定义样式*/
           newInfo.content = newInfo.content.replace(/\<img/gi, '<img style="max-width:100%" ');
           newInfo.content = newInfo.content.replace(/\<h1/gi, '<h1 style="font-size:18px;" ');
           newInfo.content = newInfo.content.replace(/\<h2/gi, '<h2 style="font-size:17px;" ');
