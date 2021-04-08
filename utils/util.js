@@ -65,7 +65,7 @@ const formatDayTransform = date =>{
   //计算相差秒数
   var leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
   var seconds=Math.round(leave3/1000)
-  console.log(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒")
+  // console.log(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒")
   // if(days==0 && hours ==0 && minutes>0){
   //   differenStr = '1分前'
   // }else if(days==0 && hours <24 && hours >0){
