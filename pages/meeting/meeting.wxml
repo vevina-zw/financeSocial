@@ -2,7 +2,7 @@
 <view class="container">
   <view class="new-cover"  wx:for="{{newsLists}}" wx:key="index"
     bindtap="goToMeetDetail" data-id="{{item.id}}">
-    <view class="top-tip" wx:if="{{item.hot}}"><image src="../../image/common/icon-top-tip.png"></image></view>
+    <!-- <view class="top-tip" wx:if="{{item.hot}}"><image src="../../image/common/icon-top-tip.png"></image></view> -->
     <view class="new-inner">
       <view class="new-img">
         <image src="{{item.icon}}"></image>
